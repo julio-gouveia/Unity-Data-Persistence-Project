@@ -10,8 +10,11 @@ public class Brick : MonoBehaviour
     
     public int PointValue;
 
+    private AudioSource audio;
+
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         var renderer = GetComponentInChildren<Renderer>();
 
         MaterialPropertyBlock block = new MaterialPropertyBlock();
@@ -39,5 +42,6 @@ public class Brick : MonoBehaviour
         
         //slight delay to be sure the ball have time to bounce
         Destroy(gameObject, 0.2f);
+        audio.Play();
     }
 }
